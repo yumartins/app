@@ -1,0 +1,6 @@
+dist
+*.html
+node_modules
+.eslintrc.js
+babel.config.js
+commitlint.config.js
