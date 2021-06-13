@@ -53,13 +53,15 @@ module.exports = {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.tsx'] }],
     'import/no-extraneous-dependencies': 0,
     '@typescript-eslint/no-explicit-any': 'off',
-    'no-restricted-syntax': ['error', 'FunctionExpression', 'WithStatement', "BinaryExpression[operator='in']"],
+    'no-restricted-syntax': ['error', 'WithStatement', "BinaryExpression[operator='in']"],
     camelcase: 0,
     'jsx-a11y/anchor-is-valid': ['error', {
       components: ['Link'],
       specialLink: ['hrefLeft', 'hrefRight'],
       aspects: ['invalidHref', 'preferButton'],
     }],
+    'space-before-function-paren': ['error', 'always'],
+    '@typescript-eslint/space-before-function-paren': 'off',
     '@typescript-eslint/naming-convention': [
       'warn',
       {
