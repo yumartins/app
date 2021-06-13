@@ -1,0 +1,38 @@
+{
+  "name": "@packages/server",
+  "author": "Yuri Martins",
+  "version": "0.0.1",
+  "private": false,
+  "scripts": {
+    "dev": "tsnd --ignore-watch node_modules ./src/index.ts",
+    "reset": "dotenv -e ../.env -- prisma migrate reset",
+    "build": "babel src/ -d ./dist -D --extensions '.ts,.tsx'",
+    "db:push": "dotenv -e ../.env -- prisma db push",
+    "migrate": "dotenv -e ../.env -- prisma migrate dev",
+    "generate": "prisma generate",
+    "build:start": "node ./dist",
+    "build:generate": "prisma generate --schema=./dist/prisma/schema.prisma"
+  },
+  "dependencies": {
+    "@koa/cors": "^3.1.0",
+    "@koa/router": "^10.0.0",
+    "@prisma/client": "^2.24.1",
+    "koa": "^2.13.1",
+    "koa-bodyparser": "^4.3.0",
+    "koa-helmet": "^6.1.0",
+    "prisma": "^2.24.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.5",
+    "@babel/preset-env": "^7.14.5",
+    "@babel/preset-typescript": "^7.14.5",
+    "@types/koa": "^2.13.3",
+    "@types/koa-bodyparser": "^4.3.1",
+    "@types/koa-helmet": "^6.0.3",
+    "@types/koa__cors": "^3.0.2",
+    "@types/koa__router": "^8.0.4",
+    "babel-preset-minify": "^0.5.1",
+    "ts-node": "^10.0.0",
+    "ts-node-dev": "^1.1.6"
+  }
+}
