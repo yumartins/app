@@ -16,7 +16,12 @@
     }
   },
   "scripts": {
-    "commit": "cz"
+    "commit": "cz",
+    "server:dev": "yarn workspace @packages/server run dev",
+    "server:reset": "yarn workspace @packages/server run reset",
+    "server:migrate": "yarn workspace @packages/server run migrate",
+    "server:db:push": "yarn workspace @packages/server run db:push",
+    "server:generate": "yarn workspace @packages/server run generate"
   },
   "workspaces": {
     "packages": [
@@ -31,6 +36,8 @@
     "@typescript-eslint/eslint-plugin": "^4.26.1",
     "@typescript-eslint/parser": "^4.26.1",
     "commitizen": "^4.2.4",
+    "dotenv": "^10.0.0",
+    "dotenv-cli": "^4.0.0",
     "eslint": "^7.28.0",
     "eslint-config-airbnb-typescript": "^12.3.1",
     "eslint-import-resolver-typescript": "^2.4.0",
