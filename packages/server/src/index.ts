@@ -5,7 +5,7 @@ import helmet from 'koa-helmet';
 
 import { errors } from './middlewares';
 import { prisma } from './prisma';
-// import router from './routes';
+import router from './routes';
 
 const app = new Koa();
 
@@ -14,9 +14,9 @@ const main = async () => {
     .use(cors())
     .use(helmet())
     .use(errors)
-    .use(parser({ jsonLimit: '2mb' }));
-  // .use(router.routes())
-  // .use(router.allowedMethods());
+    .use(parser({ jsonLimit: '2mb' }))
+    .use(router.routes())
+    .use(router.allowedMethods());
 
   app.listen(process.env.PORT || 3333);
 };
