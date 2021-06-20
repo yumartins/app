@@ -1,7 +1,7 @@
 import { CompanyHandles } from '@types';
 import { Context } from 'koa';
 
-import { prisma } from '../prisma';
+import { prisma } from '../../prisma';
 
 const companies = {
   list: async (ctx: Context): Promise<void> => {
