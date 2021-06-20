@@ -3,8 +3,8 @@ import Koa from 'koa';
 import parser from 'koa-bodyparser';
 import helmet from 'koa-helmet';
 
+import { prisma } from '../prisma';
 import { errors } from './middlewares';
-import { prisma } from './prisma';
 import router from './routes';
 
 const app = new Koa();

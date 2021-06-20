@@ -1,13 +1,9 @@
-import dotenv from 'dotenv';
 import JWT from 'jsonwebtoken';
 import { Context } from 'koa';
-import { join } from 'path';
 
 import Forbidden from './forbidden';
 import { Payload } from './types';
 import Unauthorized from './unauthorized';
-
-dotenv.config({ path: join(__dirname, '../../../../.env') });
 
 /**
  * JWT secret.

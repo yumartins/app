@@ -33,6 +33,7 @@ const companies = {
         name,
         email,
         phone,
+        password: '',
         document,
       },
     });

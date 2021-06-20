@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "private": false,
   "scripts": {
-    "dev": "tsnd --ignore-watch node_modules ./src/index.ts",
+    "dev": "dotenv -e ../../.env -- tsnd --ignore-watch node_modules ./src/index.ts",
     "reset": "dotenv -e ../../.env -- prisma migrate reset",
     "build": "babel src/ -d ./dist -D --extensions '.ts,.tsx'",
     "db:push": "dotenv -e ../../.env -- prisma db push",
