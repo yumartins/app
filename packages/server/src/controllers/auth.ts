@@ -20,7 +20,7 @@ const auth = async (ctx: Context): Promise<void> => {
     password,
   } = ctx.request.body as AuthHandles;
 
-  const response = async (user: UserHandles | CompanyHandles, typed: TypesHandles) => {
+  const response = async (user: UserHandles | CompanyHandles | any, typed: TypesHandles) => {
     if (! user) ctx.throw(400, 'Unregistered email.');
 
     if (typed === 'COMPANY') {
@@ -52,7 +52,7 @@ const auth = async (ctx: Context): Promise<void> => {
       },
     });
 
-    response(user as UserHandles, type);
+    await response(user as UserHandles, type);
   }
 
   if (type === 'COMPANY') {
@@ -62,7 +62,7 @@ const auth = async (ctx: Context): Promise<void> => {
       },
     });
 
-    response(user as CompanyHandles, type);
+    await response(user as CompanyHandles, type);
   }
 };
 
