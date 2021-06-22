@@ -1,5 +1,6 @@
+import { TypesHandles } from '@types';
+
 export type Payload = {
-  id: number,
-  email: string,
-  password: string,
+  id: string,
+  type: TypesHandles,
 };

@@ -2,7 +2,7 @@ import { CompanyHandles } from '@types';
 import { Context } from 'koa';
 
 import { prisma } from '../../prisma';
-import { bcrypt } from '../helpers';
+import { bcrypt, remove } from '../helpers';
 
 const companies = {
   list: async (ctx: Context): Promise<void> => {
@@ -44,7 +44,7 @@ const companies = {
 
     ctx.status = 201;
 
-    ctx.body = company;
+    ctx.body = remove('password', company);
   },
 };
 
