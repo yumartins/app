@@ -2,6 +2,7 @@ import { CompanyHandles } from '@types';
 import { Context } from 'koa';
 
 import { prisma } from '../../prisma';
+import { bcrypt } from '../helpers';
 
 const companies = {
   list: async (ctx: Context): Promise<void> => {
@@ -17,6 +18,7 @@ const companies = {
       name,
       email,
       phone,
+      password,
       document,
     } = ctx.request.body as CompanyHandles;
 
@@ -28,12 +30,14 @@ const companies = {
 
     if (user) ctx.throw(400, 'Company already registered.');
 
+    const hash = await bcrypt.hash(password);
+
     const company = await prisma.company.create({
       data: {
         name,
         email,
         phone,
-        password: '',
+        password: hash,
         document,
       },
     });
