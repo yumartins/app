@@ -2,11 +2,18 @@ import { UserHandles } from '@types';
 import { Context } from 'koa';
 
 import { prisma } from '../../prisma';
-import { remove } from '../helpers';
 
 const users = {
   list: async (ctx: Context): Promise<void> => {
-    const user = await prisma.user.findMany();
+    const {
+      id,
+    } = ctx.params;
+
+    const user = await prisma.user.findMany({
+      where: {
+        company_id: id,
+      },
+    });
 
     ctx.status = 200;
 
@@ -15,8 +22,8 @@ const users = {
 
   create: async (ctx: Context): Promise<void> => {
     const {
-      company,
-    } = ctx.query;
+      id,
+    } = ctx.params;
 
     const {
       name,
@@ -37,7 +44,7 @@ const users = {
         name,
         email,
         phone,
-        company_id: company as string,
+        company_id: id as string,
       },
     });
 
